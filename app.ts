@@ -1,104 +1,89 @@
-// // const show = (a: number, b: number): number | string => {
-// //     return {}
-// // }
-//
-// // const user = {name: 'Max', age: 15}
-// // const showUser = (user: { name: string, age: number }) => {
-// //     user.
-// // }
-//
-// // type UniqId = number
-// //
-// // interface IUser<T> {
-// //     id?: UniqId,
-// //     name: string,
-// //     age: number,
-// //     // address:IAdress
-// //     arr: T[]
-// // }
-//
-// // interface IAdress{
-// //     street:string,
-// //     house:number
-//
-// // }
-// // const user: Partial<IUser> = {age: 34, name: 'Max', id:5,address:{street:'street',house:41}}
-// // const user: IUser<number> = {name: 'ads', age: 15, arr: [21, 412]}
-// // console.log(user);
-// //
-// // type StateType = [string, (a: number, b: number) => number]
-// //
-// // const useState: StateType =['text', (a, b) => {
-// //     return a + b
-// // }]
-// //
-// // let [first, second] = useState;
-// // console.log(first);
-// // console.log(second(3, 4));
-//
-// // class User {
-// //
-// //     constructor(private id?: number, private name: string, private age: number) {
-// //         this.id = id;
-// //         this.name = name;
-// //         this.age = age;
-// //     }
-// //
-// //     getId(): number {
-// //         return this.id
-// //     }
-// //
-// //     setId(newId: number): void {
-// //         this.id = newId
-// //     }
-// // }
-// //
-// // const user: User = {name: 'Max', age: 5}
-// //
-// //
-// //
-// //
-//
-// interface ISHApeActions {
-//     area: () => number;
-//     perimeter: () => number;
-// }
-//
-// class Triangle implements ISHApeActions {
-//     constructor(private a: number, private b: number, private c: number) {
-//     }
-//
-//     area(): number {
-//         return this.a * this.b * this.c;
-//     }
-//
-//     perimeter(): number {
-//         return this.a + this.b + this.c;
+// interface ICore {
+//     flight: number,
+//     core: {
+//         reuse_count: number,
+//         status: string
 //     }
 //
 // }
 //
-// class Reactangle implements ISHApeActions {
-//     constructor(private a: number, private b: number) {
-//     }
-//
-//     area(): number {
-//         return this.a * this.b;
-//     }
-//
-//     perimeter(): number {
-//         return this.a+ this.b;
-//     }
-//
+// interface IPayload {
+//     payload_type: string,
+//     payload_mass_kg: number,
+//     payload_mass_lbs: number
 // }
 //
-// const shapes:ISHApeActions[]=[new Triangle(1,2,3), new Reactangle(2,4),new Triangle(2,4,5)]
-//
-// for (let shape of shapes){
-//     console.log(shape.area());
-//     console.log(shape.perimeter());
+// interface ISpaceX {
+//     mission_name: string
+//     launch_date_local: string
+//     launch_site: {
+//         site_name_long: string
+//     },
+//     links: {
+//         article_link: string,
+//         video_link: string
+//     },
+//     rocket: {
+//         rocket_name: string
+//         first_stage: {
+//             cores: ICore[]
+//         },
+//         second_stage: {
+//             payloads: IPayload[]
+//         }
+//     }
 // }
 //
+// // ---------------------------------------------------------------------------—————————
+// // 2) протипизировать функции:
+//
+// interface IUser {
+//     name: string;
+//     age: number;
+//     gender: string
+// }
+//
+// const user: IUser = {
+//     name: "Max",
+//     age: 18,
+//     gender: 'male'
+// }
+//
+// const sum = (a: number, b: number): number => a + b;
 //
 //
+// const showSum = (a: number, b: number): void=>{
+//     console.log(a + b);
+// }
 //
+// const incAge = (someUser: IUser, inc: number): IUser => {
+//     someUser.age += inc
+//     return someUser
+// }
+//
+// console.log(sum(1, 2));
+// showSum(2, 3)
+// incAge(user, 2)
+
+type Name='Max' |'Kira' | 'Karina'
+
+    interface IUser{
+    id?: number;
+    name: Name
+}
+
+interface IUser2 extends IUser{
+    age:number
+}
+
+const user: Required<IUser2> = {name: 'Kira',id:null,age:5}
+
+
+
+
+
+
+
+
+
+
